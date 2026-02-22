@@ -11,7 +11,7 @@ class AudioController {
     private audioElement: HTMLAudioElement | null = null;
     private frequencyData: Uint8Array | null = null;
 
-    // Configuration
+    // configuration
     private fftSize: number = 2048;
     private smoothingTimeConstant: number = 0.8;
 
@@ -31,7 +31,7 @@ class AudioController {
         }
     }
 
-    // Ensure context is resumed (browser autoplay policy)
+    // ensure context is resumed (browser autoplay policy)
     public async resumeContext() {
         if (this.audioContext?.state === 'suspended') {
             await this.audioContext.resume();
@@ -49,7 +49,7 @@ class AudioController {
 
         // Connect to Web Audio Graph
         if (this.audioContext && this.analyser) {
-            // Clean up previous source if exists
+            // Clean up previous source if exists (buffer)
             if (this.source) {
                 this.source.disconnect();
             }

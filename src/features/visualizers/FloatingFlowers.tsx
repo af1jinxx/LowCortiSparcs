@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { audioController } from '../../core/audio/AudioController';
 
-// A simple Procedural Flower Geometry
+// A simple Procedural Flower Geometry (reference = Blender Geo Nodes)
 const FlowerGeometry = () => {
     // We compose a flower from a center sphere and a few petal spheres
     const geom = new THREE.BufferGeometry();

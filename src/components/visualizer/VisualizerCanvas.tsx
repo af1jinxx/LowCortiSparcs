@@ -21,7 +21,7 @@ const VisualizerCanvas = () => {
                     <ContactShadows position={[0, -5, 0]} opacity={0.5} scale={50} blur={2} far={10} />
                 </Suspense>
 
-                {/* Make OrbitControls static per user request */}
+                {/* Make OrbitControls static per user request (mouse click) */}
                 <OrbitControls makeDefault />
             </Canvas>
         </div>

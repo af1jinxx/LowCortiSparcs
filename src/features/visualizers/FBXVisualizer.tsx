@@ -6,12 +6,12 @@ import { audioController } from '../../core/audio/AudioController';
 import { useAudioStore } from '../../store/useAudioStore';
 
 const FBXVisualizer = () => {
-    // Load the FBX file from the public directory
+    // loding the FBX file gikan sa public directory
     const fbx = useFBX('/Hip Hop Dancing (1).fbx');
     const groupRef = useRef<THREE.Group>(null);
     const mixerRef = useRef<THREE.AnimationMixer | null>(null);
 
-    // Track audio play state to sync animation
+    // audio play to sync anination
     const isPlaying = useAudioStore((state) => state.isPlaying);
 
     // Set up material and animation mixer once on load
@@ -36,7 +36,7 @@ const FBXVisualizer = () => {
         // 2. Setup Animation Mixer
         if (fbx.animations && fbx.animations.length > 0) {
             const mixer = new THREE.AnimationMixer(fbx);
-            // Play the first animation found in the FBX
+            // Play the first animation found in the FBX (the skeleton mesh)
             const action = mixer.clipAction(fbx.animations[0]);
             action.play();
             mixerRef.current = mixer;
@@ -64,11 +64,11 @@ const FBXVisualizer = () => {
 
         groupRef.current.scale.lerp(new THREE.Vector3(reactScale, reactScale, reactScale), 0.1);
 
-        // 2. Play animation ONLY if audio is playing, or drive animation speed by audio!
+        // 2. Play animation ONLY if audio is playing, or drive animation speed by audio.
         if (mixerRef.current) {
             let timeScale = 0;
             if (isPlaying) {
-                // The louder the music, the slightly faster they dance!
+                // The louder the music, the slightly faster the modeled character dance.
                 // Base speed 1.0, scales up to 1.5 based on volume
                 timeScale = 1.0 + (average / 255) * 0.5;
             }
