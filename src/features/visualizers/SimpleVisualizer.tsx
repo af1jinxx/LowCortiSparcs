@@ -10,8 +10,8 @@ const SimpleVisualizer = () => {
         if (meshRef.current) {
             const { average } = audioController.getAudioData();
 
-            // Simple reactivity: scale based on volume
-            // Map average (0-255) to scale (1-3)
+            // react =  base sa volume ang scale
+            // then siguro map average (0-255) to scale (1-3) (for easier scaling)
             const scale = 1 + (average / 255) * 2;
 
             meshRef.current.scale.set(scale, scale, scale);

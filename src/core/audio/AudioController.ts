@@ -47,7 +47,7 @@ class AudioController {
         this.audioElement = new Audio(url);
         this.audioElement.crossOrigin = "anonymous";
 
-        // Connect to Web Audio Graph
+        // diria iconnect ang WebAudioGraph
         if (this.audioContext && this.analyser) {
             // Clean up previous source if exists (buffer)
             if (this.source) {
@@ -75,7 +75,7 @@ class AudioController {
         if (this.analyser && this.frequencyData) {
             this.analyser.getByteFrequencyData(this.frequencyData);
 
-            // Calculate average volume for simple reactivity
+            // function para i-calculate ang average volume for simple reactivity
             let sum = 0;
             for (let i = 0; i < this.frequencyData.length; i++) {
                 sum += this.frequencyData[i];

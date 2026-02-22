@@ -5,17 +5,17 @@ import * as THREE from 'three';
 import { audioController } from '../../core/audio/AudioController';
 
 const GeometryNodeVisualizer = () => {
-    // Load the GLTF file from the public directory
+    // Load the GLTF file from the public directorsa
     const { scene } = useGLTF('/Audio Visual - Rings and Cubes.glb');
     const groupRef = useRef<THREE.Group>(null);
 
-    // Apply materials and hide the backdrop once on load
+    // apply first material tapos dapat matabunan siya ug black na backeorop afterwards
     useEffect(() => {
         if (!scene) return;
 
         scene.traverse((child) => {
             if (child instanceof THREE.Mesh) {
-                // Hide the massive black backdrop bounding box
+                // hgide the massive blackbox
                 if (child.name.includes('BACKDROP') || child.name.includes('Backdrop')) {
                     child.visible = false;
                 }
